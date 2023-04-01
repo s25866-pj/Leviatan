@@ -18,7 +18,8 @@ public class Game {
     private Player player;
     public NewGame newGame = new NewGame();
     private PlayerUtilz playerUtilz;
-    private Text text= new Text(WindowConf.GUI.HP_WIDTH,WindowConf.GUI.HP_HEIGHT,"");;
+    private Text textHP = new Text(WindowConf.GUI.HP_WIDTH,WindowConf.GUI.HP_HEIGHT,"");;
+    private Text chosenWeapon = new Text(10,20,"");
 
     private String HP_Gui;
 
@@ -47,11 +48,13 @@ public class Game {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
         root.getChildren().add(player.getPlayerRect());
-        root.getChildren().add(text);
+        root.getChildren().add(textHP);
+        root.getChildren().add(chosenWeapon);
         return game;
     }
     private void updateHP_Gui() {
         HP_Gui= player.getHp()+"|"+player.getHpMax();
-        text.setText(HP_Gui);
+        chosenWeapon.setText(player.getEquipment().get(player.getChosenWeapon()).getName());
+        textHP.setText(HP_Gui);
     }
 }

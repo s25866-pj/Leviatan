@@ -35,6 +35,9 @@ public class NewGame {
     private void createWeapon() {
         Eq.add(new Items("sword", Items.WeaponType.MELEE, Items.DamageType.PHYSICAL,10,100,1,10,10));
         Eq.add(new Items("BFG", Items.WeaponType.RANGED, Items.DamageType.TOXIC,15,1000,10,0,10));
+        Eq.add(new Items("SMG", Items.WeaponType.RANGED, Items.DamageType.FIRE,5,1,100,0,0));
+        Eq.add(new Items("Schroomer", Items.WeaponType.RANGED, Items.DamageType.ENERGY,200,11,8,10,100));
+        Eq.add(new Items("Voidragon", Items.WeaponType.RANGED, Items.DamageType.TOXIC,9999,10000,2,100,100));
     }
     public static void savePlayer(Player player) {
 

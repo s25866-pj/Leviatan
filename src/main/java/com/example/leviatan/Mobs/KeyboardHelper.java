@@ -16,7 +16,7 @@ public class KeyboardHelper {
     private PlayerUtilz playerUtilz;
     private ContinueGame continueGame;
     public void movingPressed(KeyEvent keyEvent, Player player, PlayerUtilz playerUtilz){
-
+        System.out.println(keyEvent.getCode());
         switch(keyEvent.getCode()){
             case W:
                 player.moveUP(true,player);
@@ -39,19 +39,22 @@ public class KeyboardHelper {
             case I:
                 playerUtilz.showPlayerStats(player);
                 break;
-            case G:
-                ArrayList<String> listOfFiles = new ArrayList<>();
-                File folder = new File(WindowConf.GAME_CONF.SAVES_FILE_LINUX);
-                if(!folder.exists()) {
-                    folder = new File(WindowConf.GAME_CONF.SAVES_FILE_Win);
-                }
-                int numberOfFile=folder.listFiles().length;
-                for(int i =0;i<numberOfFile;i++){
-                    System.out.println("Dodano plik"+folder.getName());
-                    listOfFiles.add(String.valueOf(folder.getName()));
-                }
-                System.out.println(listOfFiles);
+            case DIGIT1:
+                player.setChosenWeapon(1);
                 break;
+            case DIGIT2:
+                player.setChosenWeapon(2);
+                break;
+            case DIGIT3:
+                player.setChosenWeapon(3);
+                break;
+            case DIGIT4:
+                player.setChosenWeapon(4);
+                break;
+            case DIGIT5:
+                player.setChosenWeapon(5);
+                break;
+
         }
     }
 

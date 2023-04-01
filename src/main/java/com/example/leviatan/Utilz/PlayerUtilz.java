@@ -48,16 +48,16 @@ public class PlayerUtilz {
                         +"\nMOVE SPEED: "+ player.getMoveSpeed()
 
         );
+
         ArrayList<Items> eq = player.getEquipment();
-        for (Items item : eq) {
             System.out.println(
-                    "Name: "+item.getName()
-                            +"\nCost: "+item.getCost()
-                            +"\nType: "+item.getWeapontype()
-                            +"\nDamageType: "+item.getDamagetype()
-                            +"\nDMG: "+item.getDmg()
-                            +"\nAS: "+item.getUsingSpeed()
+                    "Name: "+eq.get(player.getChosenWeapon()).getName()
+                            +"\nCost: "+eq.get(player.getChosenWeapon()).getCost()
+                            +"\nType: "+eq.get(player.getChosenWeapon()).getWeapontype()
+                            +"\nDamageType: "+eq.get(player.getChosenWeapon()).getDamagetype()
+                            +"\nDMG: "+eq.get(player.getChosenWeapon()).getDmg()
+                            +"\nAS: "+eq.get(player.getChosenWeapon()).getUsingSpeed()
             );
-        }
     }
 }
+
