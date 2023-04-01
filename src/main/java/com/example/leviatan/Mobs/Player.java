@@ -2,6 +2,8 @@ package com.example.leviatan.Mobs;
 
 import com.example.leviatan.GameConf.PlayerConf;
 import com.example.leviatan.Utilz.PlayerUtilz;
+
+import java.io.File;
 import java.util.ArrayList;
 
 public class Player extends Rect {
@@ -39,6 +41,9 @@ public class Player extends Rect {
         super(x, y, width, height);
     }
 
+    public void loadSprites(){
+        File playerSprites = new File("C:\\Users\\damia\\Desktop\\JAVA\\Leviatan\\Leviatan\\src\\main\\java\\com\\example\\leviatan\\Sprites\\player_sprites.png");
+    }
 
     public void incrementLVL() {
         int dmg = getHpMax()-getHp();

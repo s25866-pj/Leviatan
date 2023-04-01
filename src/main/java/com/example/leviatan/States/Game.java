@@ -42,6 +42,9 @@ public class Game {
         game.setOnMouseReleased(mouseEvent -> {
             mouseHelper.mouseButtonRelease(mouseEvent,root);
         });
+        game.setOnScroll(scrollEvent -> {
+            mouseHelper.onWheelRoll(scrollEvent,player);
+        });
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(200), event->{
             updateHP_Gui();
         }));
@@ -54,7 +57,7 @@ public class Game {
     }
     private void updateHP_Gui() {
         HP_Gui= player.getHp()+"|"+player.getHpMax();
-        chosenWeapon.setText(player.getEquipment().get(player.getChosenWeapon()).getName());
+        chosenWeapon.setText((player.getChosenWeapon()+1)+" : "+player.getEquipment().get(player.getChosenWeapon()).getName());
         textHP.setText(HP_Gui);
     }
 }

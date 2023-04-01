@@ -16,7 +16,7 @@ public class KeyboardHelper {
     private PlayerUtilz playerUtilz;
     private ContinueGame continueGame;
     public void movingPressed(KeyEvent keyEvent, Player player, PlayerUtilz playerUtilz){
-        System.out.println(keyEvent.getCode());
+//        System.out.println(keyEvent.getCode());
         switch(keyEvent.getCode()){
             case W:
                 player.moveUP(true,player);
@@ -39,21 +39,25 @@ public class KeyboardHelper {
             case I:
                 playerUtilz.showPlayerStats(player);
                 break;
-            case DIGIT1:
-                player.setChosenWeapon(1);
+            case DIGIT0,DIGIT1:
+                player.setChosenWeapon(0);
                 break;
             case DIGIT2:
-                player.setChosenWeapon(2);
+                player.setChosenWeapon(1);
                 break;
             case DIGIT3:
-                player.setChosenWeapon(3);
+                player.setChosenWeapon(2);
                 break;
             case DIGIT4:
-                player.setChosenWeapon(4);
+                player.setChosenWeapon(3);
                 break;
             case DIGIT5:
+                player.setChosenWeapon(4);
+                break;
+            case DIGIT6, DIGIT7, DIGIT8, DIGIT9:
                 player.setChosenWeapon(5);
                 break;
+
 
         }
     }

@@ -1,5 +1,7 @@
 package com.example.leviatan.Mobs;
 
+import javafx.scene.paint.Color;
+
 public class Items {
     private String name;
     private  WeaponType Weapontype;
@@ -9,8 +11,9 @@ public class Items {
     private int usingSpeed;
     private int critChance;
     private int DebufChance;
+    private Color color;
 
-    public Items(String name, WeaponType weapontype, DamageType damagetype, int cost, int dmg, int usingSpeed, int critChance, int debufChance) {
+    public Items(String name, WeaponType weapontype, DamageType damagetype, int cost, int dmg, int usingSpeed, int critChance, int debufChance, Color color) {
         this.name = name;
         Weapontype = weapontype;
         Damagetype = damagetype;
@@ -19,6 +22,15 @@ public class Items {
         this.usingSpeed = usingSpeed;
         this.critChance = critChance;
         DebufChance = debufChance;
+        this.color = color;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     public String getName() {
