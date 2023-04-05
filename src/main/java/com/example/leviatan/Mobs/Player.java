@@ -66,9 +66,6 @@ public class Player extends Rect {
             System.out.println("lvl up, ur lvl:" +getLvl());
         }
     }
-
-
-
     public int getChosenWeapon() {
         return chosenWeapon;
     }
@@ -172,4 +169,23 @@ public class Player extends Rect {
     }
 
 
+    public void heal(int i) {
+        if(hp<hpMax) {
+            hp = hp + i;
+        }else {
+            System.out.println("Cant heal more, use shield");
+        }
+
+    }
+
+    public void gettingDamage(int i) {
+        if(shield>0){
+            shield = shield-i;
+        }else if(hp>1){
+            hp = hp-i;
+        }else{
+            hp=0;
+            System.out.println("Hp jest 0, umarłeś");
+        }
+    }
 }

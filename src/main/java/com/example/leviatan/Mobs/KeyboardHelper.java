@@ -1,9 +1,11 @@
 package com.example.leviatan.Mobs;
 import com.example.leviatan.GameConf.WindowConf;
+import com.example.leviatan.Main.Window;
 import com.example.leviatan.States.ContinueGame;
 import com.example.leviatan.States.NewGame;
 import com.example.leviatan.Utilz.PlayerUtilz;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -11,24 +13,25 @@ import java.util.ArrayList;
 import static javafx.scene.input.KeyCode.*;
 
 public class KeyboardHelper {
+    private Window window;
     private Player player;
     private NewGame newGame;
     private PlayerUtilz playerUtilz;
     private ContinueGame continueGame;
     public void movingPressed(KeyEvent keyEvent, Player player, PlayerUtilz playerUtilz){
 //        System.out.println(keyEvent.getCode());
-        switch(keyEvent.getCode()){
+        switch(keyEvent.getCode()) {
             case W:
-                player.moveUP(true,player);
+                player.moveUP(true, player);
                 break;
             case A:
-                player.moveLEFT(true,player);
+                player.moveLEFT(true, player);
                 break;
             case S:
-                player.moveDOWN(true,player);
+                player.moveDOWN(true, player);
                 break;
             case D:
-                player.moveRIGHT(true,player);
+                player.moveRIGHT(true, player);
                 break;
             case Z:
                 NewGame.savePlayer(player);
@@ -39,7 +42,7 @@ public class KeyboardHelper {
             case I:
                 playerUtilz.showPlayerStats(player);
                 break;
-            case DIGIT0,DIGIT1:
+            case DIGIT0, DIGIT1:
                 player.setChosenWeapon(0);
                 break;
             case DIGIT2:
@@ -57,8 +60,15 @@ public class KeyboardHelper {
             case DIGIT6, DIGIT7, DIGIT8, DIGIT9:
                 player.setChosenWeapon(5);
                 break;
-
-
+            case H:
+                player.heal(1);
+                break;
+            case G:
+                player.gettingDamage(1);
+                break;
+            case ESCAPE:
+                WindowConf.GAME_CONF.gameStatus = WindowConf.GAME_CONF.WINDOW_STATUS.MENU;
+                break;
         }
     }
 

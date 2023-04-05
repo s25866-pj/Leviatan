@@ -24,7 +24,7 @@ public class Game {
     private String HP_Gui;
 
     public Scene GameScene(Pane root){
-        Scene game=new Scene(root, WindowConf.WINDOW_WIDTH,WindowConf.WINDOW_HEIGHT);
+        Scene game=new Scene(root, WindowConf.WINDOW_BASIC_WIDTH,WindowConf.WINDOW_BASIC_HEIGHT);
         PlayerUtilz playerUtilz = new PlayerUtilz();
         player = newGame.createNewPlayer();
         updateHP_Gui();

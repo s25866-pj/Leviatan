@@ -1,2 +1,2 @@
-test1.txt
-test02.txt
+java.io.FileReader@72035742
+Maciek.txt

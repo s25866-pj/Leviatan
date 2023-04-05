@@ -16,8 +16,8 @@ public class Rect {
     public Rect(int x, int y, int width, int height){
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
+        this.width = (int) (width*WindowConf.GAME_SCALE);
+        this.height = (int) (height*WindowConf.GAME_SCALE);
         playerRect = new Rectangle(x,y,width,height);
         playerRect.setFill(Color.RED);
     }
@@ -51,8 +51,8 @@ public class Rect {
         }
         if(DOWN){
             playerRect.setY(playerRect.getY() + speed);
-            if(playerRect.getY()>(WindowConf.WINDOW_HEIGHT-PlayerConf.PLAYER_HEIGHT)){
-                playerRect.setY(WindowConf.WINDOW_HEIGHT-PlayerConf.PLAYER_HEIGHT);
+            if(playerRect.getY()>(WindowConf.WINDOW_BASIC_HEIGHT-PlayerConf.PLAYER_HEIGHT)){
+                playerRect.setY(WindowConf.WINDOW_BASIC_HEIGHT-PlayerConf.PLAYER_HEIGHT);
             }
         }
         if(LEFT){
@@ -63,8 +63,8 @@ public class Rect {
         }
         if(RIGHT){
             playerRect.setX(playerRect.getX() + (1 * speed));
-            if(playerRect.getX()>(WindowConf.WINDOW_WIDTH- PlayerConf.PLAYER_WIDTH)){
-                playerRect.setX(WindowConf.WINDOW_WIDTH-PlayerConf.PLAYER_WIDTH);
+            if(playerRect.getX()>(WindowConf.WINDOW_BASIC_WIDTH - PlayerConf.PLAYER_WIDTH)){
+                playerRect.setX(WindowConf.WINDOW_BASIC_WIDTH -PlayerConf.PLAYER_WIDTH);
             }
         }
     }
