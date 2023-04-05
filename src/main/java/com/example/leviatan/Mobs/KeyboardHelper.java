@@ -19,6 +19,7 @@ public class KeyboardHelper {
     private PlayerUtilz playerUtilz;
     private ContinueGame continueGame;
     public void movingPressed(KeyEvent keyEvent, Player player, PlayerUtilz playerUtilz){
+
 //        System.out.println(keyEvent.getCode());
         switch(keyEvent.getCode()) {
             case W:
@@ -67,7 +68,9 @@ public class KeyboardHelper {
                 player.gettingDamage(1);
                 break;
             case ESCAPE:
-                WindowConf.GAME_CONF.gameStatus = WindowConf.GAME_CONF.WINDOW_STATUS.MENU;
+                System.out.println("esc");
+//                WindowConf.GAME_CONF.gameStatus = WindowConf.GAME_CONF.WINDOW_STATUS.MENU;
+                    window.setStatus(WindowConf.GAME_CONF.WINDOW_STATUS.MENU);
                 break;
         }
     }

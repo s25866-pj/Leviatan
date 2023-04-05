@@ -24,7 +24,7 @@ public class WindowConf {
             CREATE_NEW_GAME,//tworzenie gry
             GAME,//inne miejsca
         }
-        public static WINDOW_STATUS gameStatus = WINDOW_STATUS.MENU;
+        public static WINDOW_STATUS gameStatus = WINDOW_STATUS.GAME;
         public enum GAME_STATUS  {
             SHIP,//nasz statek
             DOCK//edycja statku, zupełnianie zaopatrzenia
