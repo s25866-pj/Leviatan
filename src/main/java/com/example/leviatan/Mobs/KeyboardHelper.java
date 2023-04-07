@@ -69,7 +69,6 @@ public class KeyboardHelper {
                 break;
             case ESCAPE:
                 System.out.println("esc");
-//                WindowConf.GAME_CONF.gameStatus = WindowConf.GAME_CONF.WINDOW_STATUS.MENU;
                     window.setStatus(WindowConf.GAME_CONF.WINDOW_STATUS.MENU);
                 break;
         }
