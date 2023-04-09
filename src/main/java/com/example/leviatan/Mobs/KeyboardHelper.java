@@ -4,6 +4,7 @@ import com.example.leviatan.Main.Window;
 import com.example.leviatan.States.ContinueGame;
 import com.example.leviatan.States.NewGame;
 import com.example.leviatan.Utilz.PlayerUtilz;
+import com.example.leviatan.Utilz.WindowStates;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
@@ -69,7 +70,7 @@ public class KeyboardHelper {
                 break;
             case ESCAPE:
                 System.out.println("esc");
-                    window.setStatus(WindowConf.GAME_CONF.WINDOW_STATUS.MENU);
+                WindowStates.status = WindowStates.MENU;
                 break;
         }
     }

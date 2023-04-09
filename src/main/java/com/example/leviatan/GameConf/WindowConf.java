@@ -19,12 +19,8 @@ public class WindowConf {
     public class GAME_CONF {
         public static final String SAVES_FILE_LINUX = "Lewiatan/src/main/java/com/example/leawiatan/Saves/";
         public static final String SAVES_FILE_Win = "C:\\Users\\damia\\Desktop\\JAVA\\Leviatan\\Leviatan\\src\\main\\java\\com\\example\\leviatan\\Saves\\";
-        public enum WINDOW_STATUS{
-            MENU,//wiadomo
-            CREATE_NEW_GAME,//tworzenie gry
-            GAME,//inne miejsca
-        }
-        public static WINDOW_STATUS gameStatus = WINDOW_STATUS.GAME;
+
+
         public enum GAME_STATUS  {
             SHIP,//nasz statek
             DOCK//edycja statku, zupełnianie zaopatrzenia
