@@ -8,30 +8,38 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 public class MouseHelper {
     private Player player;
-    Rectangle sword;
+    Rectangle weapon;
+    Rectangle bullet;
     public void mouseButtonPress(MouseEvent mouseEvent, Player player, Pane root) {
 
         this.player = player;
-        sword = new Rectangle(this.player.getX()+ PlayerConf.PLAYER_WIDTH,this.player.getY()+20,25,10);
+        weapon = new Rectangle(this.player.getX()+ PlayerConf.PLAYER_WIDTH,this.player.getY()+20,25,10);
 
         if(mouseEvent.getButton()== MouseButton.PRIMARY){
             System.out.println("atak");
-            sword.setX(player.getPlayerRect().getX()+ PlayerConf.PLAYER_WIDTH);
-            sword.setY(player.getPlayerRect().getY()+20);
-            sword.setFill(player.getEquipment().get(player.getChosenWeapon()).getColor());
-            sword.setVisible(true);
-            //                    System.out.println("X: "+sword.getX()+" | Y: "+sword.getY());
-            //                    System.out.println("PX: "+ player.getPlayerRect().getX()+" | PY: "+player.getPlayerRect().getY());
-            root.getChildren().add(sword);
+            weapon.setX(player.getPlayerRect().getX()+ PlayerConf.PLAYER_WIDTH);
+            weapon.setY(player.getPlayerRect().getY()+20);
+            weapon.setFill(player.getEquipment().get(player.getChosenWeapon()).getColor());
+            weapon.setVisible(true);
+            if(player.getEquipment().get(player.getChosenWeapon()).getWeapontype() == Items.WeaponType.RANGED){
+                System.out.println("pif paf");
+                createBullet(weapon,root);
+            }
+            root.getChildren().add(weapon);
         }
+    }
+
+    private void createBullet(Rectangle weapon, Pane root) {
+        bullet = new Rectangle(weapon.getX(),weapon.getY()+weapon.getWidth(),10,5);
+        bullet.setFill(Color.BLACK);
     }
 
 
     public void mouseButtonRelease(MouseEvent mouseEvent, Pane root) {
         if(mouseEvent.getButton()== MouseButton.PRIMARY){
             System.out.println("puszczono");
-            sword.setVisible(false);
-            root.getChildren().remove(sword);
+            weapon.setVisible(false);
+            root.getChildren().remove(weapon);
         }
     }
 

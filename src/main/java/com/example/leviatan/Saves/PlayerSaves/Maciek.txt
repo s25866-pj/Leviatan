@@ -1,0 +1,28 @@
+Name: Maciek
+HP: 3|5
+LVL: 1
+XP: 2.0
+DMG: 10
+DEF: 10
+SHIELD: 0
+RELOAD SPEED:1.0
+MOVE SPEED: 5
+EQ:Weapon:
+Nr1:
+ 	Name: sword
+	Weapon type : MELEE
+Nr2:
+ 	Name: BFG
+	Weapon type : RANGED
+Nr3:
+ 	Name: SMG
+	Weapon type : RANGED
+Nr4:
+ 	Name: Schroomer
+	Weapon type : RANGED
+Nr5:
+ 	Name: Voidragon
+	Weapon type : RANGED
+Nr6:
+ 	Name: Tyranny's End
+	Weapon type : RANGED

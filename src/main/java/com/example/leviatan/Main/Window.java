@@ -19,6 +19,7 @@ public class Window {
     private boolean ATACK = false;
 
     public Window(Stage stage){
+
         Pane gameRoot = new Pane();
         Pane menuRoot = new Pane();
         Scene menuScene = menu.MenuScene(menuRoot);
