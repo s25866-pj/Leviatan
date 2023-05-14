@@ -2,6 +2,7 @@ package com.example.leviatan.States;
 
 import com.example.leviatan.GameConf.PlayerConf;
 import com.example.leviatan.GameConf.WindowConf;
+import com.example.leviatan.Mobs.Enemy;
 import com.example.leviatan.Mobs.Items;
 import com.example.leviatan.Mobs.Player;
 import javafx.scene.paint.Color;
@@ -99,5 +100,20 @@ public class NewGame {
                     +"\n\tWeapon type : "+EQ.get(i).getWeapontype()+"\n";
         }
         return eQToString;
+    }
+
+    public Enemy createNewEnemy() {
+             return new Enemy(randomPositionW(), randomPositionH(),50,50,1000,1000,0,10,Color.GREEN);
+    }
+
+    private int randomPositionW() {
+        int x=(int) (Math.random()* WindowConf.WINDOW_BASIC_WIDTH);
+        System.out.println(x);
+        return x ;
+    }
+    private int randomPositionH() {
+        int y=(int) (Math.random()* WindowConf.WINDOW_BASIC_HEIGHT);
+        System.out.println(y);
+        return y;
     }
 }

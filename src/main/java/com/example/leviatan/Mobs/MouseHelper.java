@@ -10,15 +10,16 @@ public class MouseHelper {
     private Player player;
     Rectangle weapon;
     Rectangle bullet;
-    public void mouseButtonPress(MouseEvent mouseEvent, Player player, Pane root) {
+    private Enemy enemy;
+    public void mouseButtonPress(MouseEvent mouseEvent, Player player, Pane root,Enemy enemy) {
 
         this.player = player;
         weapon = new Rectangle(this.player.getX()+ PlayerConf.PLAYER_WIDTH,this.player.getY()+20,25,10);
 
         if(mouseEvent.getButton()== MouseButton.PRIMARY){
-            System.out.println("atak");
             weapon.setX(player.getPlayerRect().getX()+ PlayerConf.PLAYER_WIDTH);
             weapon.setY(player.getPlayerRect().getY()+20);
+            enemy.detectHit(root,weapon,enemy,player);
             weapon.setFill(player.getEquipment().get(player.getChosenWeapon()).getColor());
             weapon.setVisible(true);
             if(player.getEquipment().get(player.getChosenWeapon()).getWeapontype() == Items.WeaponType.RANGED){
@@ -28,6 +29,8 @@ public class MouseHelper {
             root.getChildren().add(weapon);
         }
     }
+
+
 
     private void createBullet(Rectangle weapon, Pane root) {
         bullet = new Rectangle(weapon.getX(),weapon.getY()+weapon.getWidth(),10,5);

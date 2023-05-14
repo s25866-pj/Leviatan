@@ -2,6 +2,7 @@ package com.example.leviatan.Mobs;
 
 import com.example.leviatan.GameConf.PlayerConf;
 import com.example.leviatan.Utilz.PlayerUtilz;
+import javafx.scene.paint.Color;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class Player extends Rect {
 
     private ArrayList<Items> Equipment;
     public Player(int x, int y, int width, int height, String name, int lvl, double xp, int dmg, int def, int shield, float reloadSpeed, int moveSpeed, int hp, int hpMax, ArrayList<Items> Equipment, int chosenWeapon){
-        super(x, y, width, height);
+        super(x, y, width, height,Color.RED);
         this.name = name;
         this.lvl = lvl;
         this.xp = xp;
@@ -35,10 +36,6 @@ public class Player extends Rect {
         this.hpMax = hpMax;
         this.Equipment = Equipment;
         this.chosenWeapon= chosenWeapon;
-    }
-
-    public Player(int x, int y, int width, int height) {
-        super(x, y, width, height);
     }
 
     public void loadSprites(){
@@ -114,7 +111,7 @@ public class Player extends Rect {
         this.xp = xp;
     }
 
-    public void incrementXp(double received) {
+    private void incrementXp(double received) {
         xp = xp+received;
     }
 

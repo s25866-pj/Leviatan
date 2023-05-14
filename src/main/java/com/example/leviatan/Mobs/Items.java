@@ -13,6 +13,37 @@ public class Items {
     private int DebufChance;
     private Color color;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public Items() {
+    }
+
     public Items(String name, WeaponType weapontype, DamageType damagetype, int cost, int dmg, int usingSpeed, int critChance, int debufChance, Color color) {
         this.name = name;
         Weapontype = weapontype;
@@ -109,4 +140,5 @@ public class Items {
         ENERGY,
 
     }
+
 }

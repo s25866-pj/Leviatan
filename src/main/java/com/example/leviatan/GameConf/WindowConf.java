@@ -19,13 +19,10 @@ public class WindowConf {
     public class GAME_CONF {
         public static final String SAVES_FILE_LINUX = "Lewiatan/src/main/java/com/example/leawiatan/Saves/";
         public static final String SAVES_FILE_Win = "C:\\Users\\damia\\Desktop\\JAVA\\Leviatan\\Leviatan\\src\\main\\java\\com\\example\\leviatan\\Saves\\";
+        public static final String LIST_OF_WEAPON_LINUX="Leviatan/src/main/java/com/example/leviatan/Sprites/ListOfWeapon.json";
+        public static final String LIST_OF_WEAPON_Win ="C:\\Users\\damia\\Desktop\\JAVA\\Leviatan\\Leviatan\\src\\main\\java\\com\\example\\leviatan\\Sprites\\ListOfWeapon.json";
 
 
-        public enum GAME_STATUS  {
-            SHIP,//nasz statek
-            DOCK//edycja statku, zupełnianie zaopatrzenia
-
-        }
     }
 
 }

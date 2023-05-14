@@ -12,14 +12,15 @@ public class Rect {
     private int height;
     private Rectangle playerRect;
     private boolean UP,LEFT,RIGHT,DOWN;
+    private Color color;
 
-    public Rect(int x, int y, int width, int height){
+    public Rect(int x, int y, int width, int height,Color color){
         this.x = x;
         this.y = y;
         this.width = (int) (width*WindowConf.GAME_SCALE);
         this.height = (int) (height*WindowConf.GAME_SCALE);
         playerRect = new Rectangle(x,y,width,height);
-        playerRect.setFill(Color.RED);
+        playerRect.setFill(color);
     }
 
     public int getX() {
@@ -32,6 +33,14 @@ public class Rect {
 
     public int getWidth() {
         return width;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     public int getHeight() {

@@ -2,7 +2,9 @@ package com.example.leviatan.Mobs;
 import com.example.leviatan.GameConf.WindowConf;
 import com.example.leviatan.Main.Window;
 import com.example.leviatan.States.ContinueGame;
+import com.example.leviatan.States.Game;
 import com.example.leviatan.States.NewGame;
+import com.example.leviatan.Utilz.GameStates;
 import com.example.leviatan.Utilz.PlayerUtilz;
 import com.example.leviatan.Utilz.WindowStates;
 import javafx.scene.input.KeyEvent;
@@ -14,6 +16,7 @@ import java.util.ArrayList;
 import static javafx.scene.input.KeyCode.*;
 
 public class KeyboardHelper {
+    private Game game;
     private Window window;
     private Player player;
     private NewGame newGame;
@@ -69,9 +72,18 @@ public class KeyboardHelper {
                 player.gettingDamage(1);
                 break;
             case ESCAPE:
-                System.out.println("esc");
                 WindowStates.status = WindowStates.MENU;
                 break;
+            case E:
+                GameStates.gameStates=GameStates.EQ;
+                System.out.println(GameStates.gameStates);
+//                if(GameStates.gameStates!=GameStates.EQ){
+//                    GameStates.gameStates=GameStates.EQ;
+//                }else{
+//                    GameStates.gameStates=GameStates.GAME;
+//                }
+                break;
+
         }
     }
 
