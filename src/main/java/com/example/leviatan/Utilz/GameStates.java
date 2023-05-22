@@ -1,10 +1,8 @@
 package com.example.leviatan.Utilz;
-
-
 public enum GameStates {
         SHIP,//nasz statek
         DOCK,//edycja statku, zupełnianie zaopatrzenia
-        GAME,//gra
-        EQ;
-        public static GameStates gameStates=GAME;
+        PLAY_GAME;//gra
+//        public static GameStates gameStates= PLAY_GAME;
+        public static GameStates gameStates= DOCK;
 }

@@ -75,13 +75,7 @@ public class KeyboardHelper {
                 WindowStates.status = WindowStates.MENU;
                 break;
             case E:
-                GameStates.gameStates=GameStates.EQ;
-                System.out.println(GameStates.gameStates);
-//                if(GameStates.gameStates!=GameStates.EQ){
-//                    GameStates.gameStates=GameStates.EQ;
-//                }else{
-//                    GameStates.gameStates=GameStates.GAME;
-//                }
+
                 break;
 
         }
