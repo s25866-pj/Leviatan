@@ -6,8 +6,8 @@ public class WindowConf {
     public static final float GAME_SCALE = 1.5F;
     public static final double WINDOW_BASIC_WIDTH = 640;
     public static final double WINDOW_BASIC_HEIGHT = (WINDOW_BASIC_WIDTH /16)*9;
-//    public static final double WINDOW_FINAL_WIDTH = WINDOW_BASIC_WIDTH*GAME_SCALE;
-//    public static final double WINDOW_FINAL_HEIGHT = WINDOW_BASIC_HEIGHT*GAME_SCALE;
+    public static final int GAME_PIXELS_WIDTH=(int)WINDOW_BASIC_WIDTH/10;
+    public static final int GAME_PIXELS_HEIGHT=(int)WINDOW_BASIC_HEIGHT/10;
     public class GUI{
         public static final int HP_WIDTH=(int) WINDOW_BASIC_WIDTH -35;
         public static final int HP_HEIGHT=20;

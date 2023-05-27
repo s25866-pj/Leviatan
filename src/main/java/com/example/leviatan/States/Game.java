@@ -73,7 +73,6 @@ public class Game {
 
     private void createEnemy(Pane root) {
         enemy= newGame.createNewEnemy();
-//        enemy.getPlayerRect().setVisible(true);
         root.getChildren().add(enemy.getPlayerRect());
     }
 
