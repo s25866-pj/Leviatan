@@ -18,21 +18,27 @@ import java.util.ArrayList;
 public class Ship {
     private double scale= 3.0;
     private boolean showBackground = false;
+
     public Scene ShipScene(Pane gameRoot) {
 
         Scene editShip = new Scene(gameRoot, WindowConf.WINDOW_BASIC_WIDTH,WindowConf.WINDOW_BASIC_HEIGHT);
         Rectangle EQ = new Rectangle();
+
+
         Button showBackgroundButton = new Button("zmień widok");
         showBackgroundButton.setOnAction(e->{
             showBackground=!showBackground;
         });
+        Image Ship2RoomShape= new Image("C:\\Users\\damia\\Desktop\\JAVA\\Leviatan\\Leviatan\\src\\main\\java\\com\\example\\leviatan\\Sprites\\ShipCore\\Ship_2.png");
+
+        Image shipBlueprint = new Image("C:\\Users\\damia\\Desktop\\JAVA\\Leviatan\\Leviatan\\src\\main\\java\\com\\example\\leviatan\\Sprites\\ShipCore\\Ship_2.png");
         EQ.setX(500);
         EQ.setY(0);
+
         EQ.setWidth(WindowConf.WINDOW_BASIC_WIDTH-EQ.getX());
         EQ.setHeight(WindowConf.WINDOW_BASIC_HEIGHT);
         Image shipImage = new Image("C:\\Users\\damia\\Desktop\\JAVA\\Leviatan\\Leviatan\\src\\main\\java\\com\\example\\leviatan\\Mobs\\Graphic\\Ship_2.png");
         Image shipImageBackground = new Image("C:\\Users\\damia\\Desktop\\JAVA\\Leviatan\\Leviatan\\src\\main\\java\\com\\example\\leviatan\\Mobs\\Graphic\\Ship_2EditHelp.png");
-        // Tworzenie ImageView i ustawianie obrazka
         ImageView shipImageView = new ImageView(shipImage);
         ImageView shipImageViewBackground = new ImageView(shipImageBackground);
         shipImageViewBackground.setFitWidth(shipImage.getWidth()*scale);
@@ -41,23 +47,34 @@ public class Ship {
 
 
         EQ.setFill(Color.YELLOW);
-        getShipData();
+        getShipData(Ship2RoomShape);
 
         editShip.setOnMouseMoved(mouseEvent -> {
             if(mouseEvent.getX()>=EQ.getX()){
                 System.out.println("EQ");
             }
             else {
-                int x= 10*((int) mouseEvent.getX()/10);
-                int y= 10*((int) mouseEvent.getY()/10);
+//                int x= 10*((int) mouseEvent.getX()/10);
+//                int y= 10*((int) mouseEvent.getY()/10);
+                int x = ((int)mouseEvent.getX());
+                int y = ((int)mouseEvent.getY());
                 System.out.println("X : "+x+" | Y :"+y);
             }
 
         });
-
-
         gameRoot.getChildren().addAll(EQ,shipImageView,shipImageViewBackground,showBackgroundButton);
         return editShip;
+    }
+
+    private ArrayList<java.awt.Rectangle> createShipEectangle(Image shipBlueprint) {
+
+        for (int i = 0; i < shipBlueprint.getWidth(); i++) {
+            for (int j = 0; j < shipBlueprint.getHeight(); j++) {
+
+
+            }
+        }
+        return null;
     }
 
     private ArrayList<ShipPart> getPlayerShipEQ() {
@@ -74,19 +91,32 @@ public class Ship {
 
     }
 
-    public static int[][] getShipData(){
-        int[][] shipData= new int[WindowConf.GAME_PIXELS_HEIGHT][WindowConf.GAME_PIXELS_WIDTH];
-        Image ship = getShipImg();
+    public static int[][] getShipData(Image ship){
+        ArrayList<ArrayList<Integer>> shipData= new ArrayList<>();
+        ArrayList <Integer> row = new ArrayList<>();
         PixelReader pixelReader = ship.getPixelReader();
         for (int i = 0; i < ship.getHeight(); i++) {
             for (int j = 0; j < ship.getWidth(); j++) {
-                shipData[i][j]= (pixelReader.getArgb(j,i)>>16 & 0xFF);
+                if(checkColor(pixelReader.getArgb(j,i), 255,255,255)){
+                        row.add(1);
+                }
+
+                   // (pixelReader.getArgb(j,i)>>16 & 0xFF)
 //               shipData[i][j]  = (pixelReader.getArgb(j,i) & 0xFF);  blue
 //               shipData[i][j]  = (pixelReader.getArgb(j,i)>>8 & 0xFF);  green
-
             }
+            shipData.add(row);
+            row=new ArrayList<>();
         }
-        return shipData;
+        System.out.println(shipData);
+        return null;
+    }
+
+    private static boolean checkColor(int argb,int r, int g, int b) {
+        int pixelRed = (argb >> 16) & 0xFF;
+        int pixelGreen = (argb >> 8) & 0xFF;
+        int pixelBlue = argb & 0xFF;
+        return (pixelRed == r && pixelGreen == g && pixelBlue == b);
     }
 
     private static Image getShipImg() {
