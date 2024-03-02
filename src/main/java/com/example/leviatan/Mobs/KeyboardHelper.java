@@ -1,19 +1,13 @@
 package com.example.leviatan.Mobs;
-import com.example.leviatan.GameConf.WindowConf;
 import com.example.leviatan.Main.Window;
 import com.example.leviatan.States.ContinueGame;
 import com.example.leviatan.States.Game;
 import com.example.leviatan.States.NewGame;
-import com.example.leviatan.Utilz.GameStates;
 import com.example.leviatan.Utilz.PlayerUtilz;
 import com.example.leviatan.Utilz.WindowStates;
+import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
-import javafx.stage.Stage;
-
-import java.io.File;
-import java.util.ArrayList;
-
-import static javafx.scene.input.KeyCode.*;
+import javafx.scene.layout.Pane;
 
 public class KeyboardHelper {
     private Game game;
@@ -22,9 +16,12 @@ public class KeyboardHelper {
     private NewGame newGame;
     private PlayerUtilz playerUtilz;
     private ContinueGame continueGame;
-    public void movingPressed(KeyEvent keyEvent, Player player, PlayerUtilz playerUtilz){
+    public KeyboardHelper (Game game){
+        this.game= game;
+    }
 
-//        System.out.println(keyEvent.getCode());
+
+    public void movingPressed(KeyEvent keyEvent, Player player, PlayerUtilz playerUtilz, Pane root){
         switch(keyEvent.getCode()) {
             case W:
                 player.moveUP(true, player);
@@ -75,12 +72,13 @@ public class KeyboardHelper {
                 WindowStates.status = WindowStates.MENU;
                 break;
             case E:
-
+                game.createEnemy(root);
                 break;
+            case V:
+                player.addShield(1);
 
         }
     }
-
     public void movingReleased(KeyEvent keyEvent, Player player) {
         switch(keyEvent.getCode()){
             case W:

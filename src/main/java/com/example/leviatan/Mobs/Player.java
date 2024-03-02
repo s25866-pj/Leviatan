@@ -185,4 +185,8 @@ public class Player extends Rect {
             System.out.println("Hp jest 0, umarłeś");
         }
     }
+
+    public void addShield(int i) {
+        shield+=1;
+    }
 }

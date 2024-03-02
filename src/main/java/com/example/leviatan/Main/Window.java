@@ -28,7 +28,7 @@ public class Window {
         Pane editShipRoot = new Pane();
         Scene menuScene = menu.MenuScene(menuRoot);
         Scene gameScene = game.GameScene(gameRoot);
-        Scene editShip = ship.ShipScene(editShipRoot);
+//        Scene editShip = ship.ShipScene(editShipRoot);
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(200),event->{
             switch (status){
                 case GAME :
@@ -36,11 +36,11 @@ public class Window {
                         case PLAY_GAME:
                             stage.setScene(gameScene);
                             break;
-                        case DOCK:
-                            stage.setScene(editShip);
-                            break;
-                        case SHIP:
-                            break;
+//                        case DOCK:
+//                            stage.setScene(editShip);
+ //                           break;
+//                        case SHIP:
+//                            break;
                     }
                     break;
                 case MENU:

@@ -102,8 +102,10 @@ public class NewGame {
         return eQToString;
     }
 
-    public Enemy createNewEnemy() {
-             return new Enemy(randomPositionW(), randomPositionH(),50,50,1000,1000,0,10,Color.GREEN);
+    public Enemy createNewEnemy(ArrayList<Enemy> enemyList) {
+        int W = randomPositionW();
+        int H = randomPositionH();
+        return new Enemy(W,H,50,50,1000,1000,0,10,Color.GREEN);
     }
 
     private int randomPositionW() {

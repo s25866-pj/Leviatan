@@ -1,4 +1,4 @@
-package com.example.leviatan.Sprites;
+package com.example.leviatan.src;
 
 import com.example.leviatan.Mobs.Items;
 

@@ -1,5 +1,6 @@
 package com.example.leviatan.Mobs;
 import com.example.leviatan.GameConf.PlayerConf;
+import com.example.leviatan.GameConf.WindowConf;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
@@ -35,12 +36,13 @@ public class MouseHelper {
     private void createBullet(Rectangle weapon, Pane root) {
         bullet = new Rectangle(weapon.getX(),weapon.getY()+weapon.getWidth(),10,5);
         bullet.setFill(Color.BLACK);
+        while(bullet.getX()< WindowConf.WINDOW_BASIC_WIDTH){
+            //dodać że jak udezy w ścianę to znika a dopóóóóóóóóóóóóóki nie to ma sie poruszć
+        }
+        root.getChildren().add(bullet);
     }
-
-
     public void mouseButtonRelease(MouseEvent mouseEvent, Pane root) {
         if(mouseEvent.getButton()== MouseButton.PRIMARY){
-            System.out.println("puszczono");
             weapon.setVisible(false);
             root.getChildren().remove(weapon);
         }

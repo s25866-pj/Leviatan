@@ -78,6 +78,7 @@ public class Rect {
         }
     }
     public void moveUP(boolean b, Player player) {
+
         UP=b;
         updatePosition(player);
     }
