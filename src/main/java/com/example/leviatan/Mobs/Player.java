@@ -39,7 +39,7 @@ public class Player extends Rect {
     }
 
     public void loadSprites(){
-        File playerSprites = new File("C:\\Users\\damia\\Desktop\\JAVA\\Leviatan\\Leviatan\\src\\main\\java\\com\\example\\leviatan\\Sprites\\player_sprites.png");
+//        File playerSprites = new File("C:\\Users\\damia\\Desktop\\JAVA\\Leviatan\\Leviatan\\src\\main\\java\\com\\example\\leviatan\\Sprites\\player_sprites.png");
     }
 
     public void incrementLVL() {

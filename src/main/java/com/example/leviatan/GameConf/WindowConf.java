@@ -12,7 +12,7 @@ public class WindowConf {
         public static final int HP_WIDTH=(int) WINDOW_BASIC_WIDTH -35;
         public static final int HP_HEIGHT=20;
         public static final int HP_SIZE=20;
-        public static final Font HP_FONT= Font.font("/main/java/com/example/leawiatan/Sources/Fonts/VT323-Regular.ttf");
+//        public static final Font HP_FONT= Font.font("/main/java/com/example/leawiatan/Sources/Fonts/VT323-Regular.ttf");
 
 
     }

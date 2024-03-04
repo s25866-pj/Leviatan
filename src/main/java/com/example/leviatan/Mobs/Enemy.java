@@ -4,6 +4,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+import java.util.List;
+
 public class Enemy extends Rect {
     private int enemyHpmax;
     private int currentEnemyHp;
@@ -63,31 +65,47 @@ public class Enemy extends Rect {
     }
 
     public void detectHit(Pane root, Rectangle weapon, Enemy enemy, Player player) {
-        if(player.getEquipment().get(player.getChosenWeapon()).getWeapontype()== Items.WeaponType.MELEE){
-            if(enemyhited(weapon,enemy,weapon.getY(),weapon.getX())) {
-                if (getCurrentEnemyHp() <= 0) {
-                    if (life) {
-                        life = false;
-                        enemy.getPlayerRect().setVisible(false);
-                        root.getChildren().remove(enemy.getPlayerRect());
-                        player.xpAndLvlManage(getGivenXp());
-                    } else {
-                        System.out.println("enemy dead");
-                    }
+        if(enemyhited(weapon,enemy,weapon.getY(),weapon.getX())) {
+            if (getCurrentEnemyHp() <= 0) {
+                if (life) {
+                    life = false;
+                    enemy.getPlayerRect().setVisible(false);
+                    root.getChildren().remove(enemy.getPlayerRect());
+                    player.xpAndLvlManage(getGivenXp());
                 } else {
-                    setCurrentEnemyHp(getCurrentEnemyHp() - (player.getEquipment().get(player.getChosenWeapon()).getDmg()));
-
+                    System.out.println("enemy dead");
                 }
+            } else {
+                setCurrentEnemyHp(getCurrentEnemyHp() - (player.getEquipment().get(player.getChosenWeapon()).getDmg()));
             }
-        } else if (player.getEquipment().get(player.getChosenWeapon()).getWeapontype()== Items.WeaponType.RANGED){
-            System.out.println("strał z broni palnej");
         }
     }
 
-//    private boolean bulletHited(Bullet bullet,Enemy enemy) {
-//        return false;
-//    }
+    public void detectHit(Pane root, List<Rectangle> bullets, Enemy enemy,Player player) {
+        if(enemyShoted(bullets,enemy)){
+            if (getCurrentEnemyHp() <= 0) {
+                if (life) {
+                    life = false;
+                    enemy.getPlayerRect().setVisible(false);
+                    root.getChildren().remove(enemy.getPlayerRect());
+                    player.xpAndLvlManage(getGivenXp());
+                } else {
+                    System.out.println("enemy dead");
+                }
+            } else {
+                setCurrentEnemyHp(getCurrentEnemyHp() - (player.getEquipment().get(player.getChosenWeapon()).getDmg()));
+            }
+        }
+    }
 
+    private boolean enemyShoted(List<Rectangle> bullets, Enemy enemy) {
+        for(Rectangle bullet :bullets){
+            if(bullet.getX()>=enemy.getX() && bullet.getX()<= (enemy.getX()+enemy.getWidth())){
+                return true;
+            }
+        }
+        return false;
+    }
 
     private boolean enemyhited(Rectangle weapon, Enemy enemy, double y, double x) {
 
@@ -98,4 +116,6 @@ public class Enemy extends Rect {
         }
         return false;
     }
+
+
 }
